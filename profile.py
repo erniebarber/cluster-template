@@ -44,7 +44,7 @@ for i in range(6):
   elif i == 2:
     node = request.XenVM("storage")
   else:
-    node = request.XenVM("compute-" + str(i))
+    node = request.XenVM("compute-" + str(i-2))
     node.cores = 2
     node.ram = 4096
     
@@ -60,7 +60,7 @@ for i in range(6):
   node.addService(pg.Execute(shell="sh", command="sudo chmod 755 /local/repository/install_mpi.sh"))
   node.addService(pg.Execute(shell="sh", command="sudo /local/repository/install_mpi.sh"))
   
-  node.addService(pg.Execute(shell="sh", command="sudo su lngo -c 'cp /local/repository/source/* /users/lngo'"))
+  node.addService(pg.Execute(shell="sh", command="sudo su eb881047 -c 'cp /local/repository/source/* /users/eb881047'"))
   
 # Print the RSpec to the enclosing page.
 pc.printRequestRSpec(request)
